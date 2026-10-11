@@ -4,36 +4,50 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NEEL Advisory</title>
-<meta name="description" content="NEEL Advisory is a consulting firm in Selangor, Malaysia. Strategy, business plans, websites, automation and ongoing management for owner-run businesses.">
+<meta name="description" content="NEEL Advisory is an independent strategy consultancy for organisations of every size, from single-outlet merchants to GLCs. We take an engagement from diagnosis through decision and execution to the reviews that keep it on course.">
 <link rel="canonical" href="https://neeladvisory.my/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="NEEL Advisory">
 <meta property="og:title" content="NEEL Advisory">
-<meta property="og:description" content="NEEL Advisory is a consulting firm in Selangor, Malaysia. Strategy, business plans, websites, automation and ongoing management for owner-run businesses.">
+<meta property="og:description" content="NEEL Advisory is an independent strategy consultancy for organisations of every size, from single-outlet merchants to GLCs. We take an engagement from diagnosis through decision and execution to the reviews that keep it on course.">
 <meta property="og:url" content="https://neeladvisory.my/">
 <meta property="og:image" content="https://neeladvisory.my/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B1D3A">
+<meta name="theme-color" content="#060F22">
 <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Michroma&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Michroma&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="page-index">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E4EBF5"/><stop offset=".5" stop-color="#97A5BE"/><stop offset="1" stop-color="#5E6D88"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="b"/>
+      <feFlood flood-color="#3EE6FF" flood-opacity=".75"/>
+      <feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>
+
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap masthead__in">
     <a class="brand" href="index.html" aria-label="NEEL Advisory, home">
-      <img class="brand__mark" src="assets/brand/neel-mark.png" alt="" width="42" height="42">
-      <span class="brand__text"><span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span></span>
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span>
     </a>
     <nav class="nav" aria-label="Main">
       <a href="services.html">Services</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
-      <a class="btn btn--sm btn--accent" href="contact.html">Send a brief</a>
+      <a class="btn btn--cyan btn--sm magnetic" href="contact.html">Get in touch</a>
     </nav>
     <details class="menu">
       <summary>Menu</summary>
@@ -49,40 +63,82 @@
 
 <main id="main">
 
-<section class="hero">
+<section class="hero dark" id="top">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="gridbg" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow eyebrow--gold">NEEL Advisory &middot; Selangor, Malaysia</p>
-      <h1>Advice you can<br><span class="hl">point to.</span></h1>
-      <p class="lede">We advise owner-run businesses, then build what we recommend, from the plan and the numbers to the website and the automation behind them.</p>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Independent strategy consulting</p>
+      <h1><span class="line"><span>Strategy you</span></span> <span class="line"><span>can <em class="grad" style="font-style:normal">point to.</em></span></span></h1>
+      <p class="lede">NEEL Advisory works with organisations of every size, from owner-run merchants to government-linked groups. We take an engagement from diagnosis, through the decision and its execution, to the reviews that keep it on course.</p>
       <div class="actions">
-        <a class="btn btn--accent" href="services.html">Our services</a>
-        <a class="btn btn--ghost" href="contact.html">Send a brief</a>
+        <a class="btn btn--cyan magnetic" href="services.html">Our services</a>
+        <a class="btn btn--glass magnetic" href="contact.html">Get in touch</a>
       </div>
+      <ul class="chips" aria-label="Who we work with">
+        <li>Merchants</li><li>SMEs and family businesses</li><li>Corporations</li><li>GLCs and agencies</li>
+      </ul>
     </div>
-    <div class="hero__art hero__art--logo"><img src="assets/brand/neel-logo-hero.jpg" alt="The NEEL mark: a cube whose faces form the letters N, E and L, edged in cyan light" width="1200" height="960"></div>
+    <div class="hero__cube" aria-hidden="true">
+      <div class="particles">
+        <i style="--x:12%;--y:18%;--d:3.2s"></i><i style="--x:80%;--y:12%;--d:4.1s;--z:2px"></i><i style="--x:90%;--y:46%;--d:5s"></i>
+        <i style="--x:6%;--y:60%;--d:3.7s;--z:2px"></i><i style="--x:22%;--y:84%;--d:4.6s"></i><i style="--x:70%;--y:88%;--d:3.4s;--z:4px"></i>
+        <i style="--x:48%;--y:6%;--d:5.4s;--z:2px"></i><i style="--x:94%;--y:74%;--d:4.3s"></i><i style="--x:34%;--y:40%;--d:3.9s;--z:2px"></i>
+      </div>
+      <div class="scene">
+        <div class="tilt" id="tilt">
+          <div class="spin">
+            <div class="face face--front"><svg viewBox="0 0 100 100"><g class="letter"><rect x="14" y="14" width="18" height="72"/><rect x="68" y="14" width="18" height="72"/><polygon points="14,14 32,14 86,86 68,86"/></g></svg></div>
+            <div class="face face--right"><svg viewBox="0 0 100 100"><g class="letter"><rect x="14" y="14" width="18" height="72"/><rect x="14" y="14" width="72" height="16"/><rect x="14" y="42" width="58" height="16"/><rect x="14" y="70" width="72" height="16"/></g></svg></div>
+            <div class="face face--back"><svg viewBox="0 0 100 100"><g class="letter"><rect x="14" y="14" width="18" height="72"/><rect x="14" y="14" width="72" height="16"/><rect x="14" y="42" width="58" height="16"/><rect x="14" y="70" width="72" height="16"/></g></svg></div>
+            <div class="face face--left"><svg viewBox="0 0 100 100"><g class="letter"><rect x="14" y="14" width="18" height="72"/><rect x="14" y="70" width="72" height="16"/></g></svg></div>
+            <div class="face face--top"><svg viewBox="0 0 100 100"><g class="letter"><rect x="30" y="30" width="40" height="40" fill="none" stroke-width="3"/><rect x="44" y="44" width="12" height="12"/><rect x="12" y="12" width="10" height="3"/><rect x="12" y="12" width="3" height="10"/><rect x="78" y="12" width="10" height="3"/><rect x="85" y="12" width="3" height="10"/><rect x="12" y="85" width="10" height="3"/><rect x="12" y="78" width="3" height="10"/><rect x="78" y="85" width="10" height="3"/><rect x="85" y="78" width="3" height="10"/></g></svg></div>
+            <div class="face face--bottom"></div>
+          </div>
+        </div>
+      </div>
+      <div class="floor"></div>
+    </div>
   </div>
 </section>
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker__track">
-    <span>Strategy and planning</span><span>Business plans and models</span><span>Website, email and automation</span><span>Ongoing management</span>
-    <span>Strategy and planning</span><span>Business plans and models</span><span>Website, email and automation</span><span>Ongoing management</span>
+    <span>01 Understand</span><span>02 Decide</span><span>03 Execute</span><span>04 Sustain</span><span>Strategy for organisations of every size</span>
+    <span>01 Understand</span><span>02 Decide</span><span>03 Execute</span><span>04 Sustain</span><span>Strategy for organisations of every size</span>
   </div>
 </div>
 
-<section class="section" aria-labelledby="services-h">
-  <div class="wrap">
-    <div class="head head--split reveal">
+<section class="section bento dark" id="services" aria-labelledby="services-h">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <div class="head head--split">
       <div>
-        <p class="eyebrow">Services</p>
-        <h2 id="services-h">What we do</h2>
+        <p class="eyebrow">Services &middot; End to end</p>
+        <h2 id="services-h">Four stages, from diagnosis to review.</h2>
       </div>
-      <p class="lede">Four things we do. Each ends in something you can open, send or run.</p>
+      <p class="lede">Engage us for one stage or for the whole sequence.</p>
     </div>
-    <div class="services services--4">
-      <article class="service reveal">
-        <div class="service__art"><svg class="illo illo--strategy" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+    <div class="tiles">
+      <article class="tile">
+        <div class="tile__top"><span class="index">01</span><span class="eyebrow">Understand</span></div>
+        <div class="tile__art"><svg class="illo illo--plans" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+  <path class="il-line il-dim" d="M14 100H106"/>
+  <rect class="il-bar il-grow" style="--d:0s" x="20" y="70" width="12" height="30"/>
+  <rect class="il-bar il-grow" style="--d:.15s" x="38" y="58" width="12" height="42"/>
+  <rect class="il-bar il-grow" style="--d:.3s" x="56" y="64" width="12" height="36"/>
+  <rect class="il-bar il-grow" style="--d:.45s" x="74" y="44" width="12" height="56"/>
+  <rect class="il-lime il-grow" style="--d:.6s" x="92" y="28" width="12" height="72"/>
+  <path class="il-line il-gold-line il-dash" d="M14 52H106"/>
+</svg></div>
+        <h3>Where the business stands</h3>
+        <p>Market, customers, competitors and the numbers, examined together. Operations and processes as they run in practice. One clear statement of the problem to solve.</p>
+      </article>
+      <article class="tile">
+        <div class="tile__top"><span class="index">02</span><span class="eyebrow">Decide</span></div>
+        <div class="tile__art"><svg class="illo illo--strategy" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
   <path class="il-line" d="M18 60H44"/>
   <path class="il-line il-dim" d="M44 60C58 60 58 30 72 30H98"/>
   <path class="il-line il-dim" d="M44 60H98"/>
@@ -92,46 +148,30 @@
   <rect class="il-node il-dim" x="96" y="54" width="12" height="12"/>
   <rect class="il-pick-fill il-pop" x="96" y="84" width="12" height="12"/>
 </svg></div>
-        <p class="service__k eyebrow eyebrow--ink">Strategy</p>
-        <h3>Strategy and planning</h3>
-        <p>Deciding what to do next, with the options, the numbers and the timeline written down.</p>
-        <p class="service__more"><a href="services.html#strategy">What you get</a></p>
+        <h3>The direction, and the case for it</h3>
+        <p>Options weighed for risk and return, the chosen strategy, and the business plan, financial model and business case to take to owners, a board, a bank or shareholders.</p>
       </article>
-      <article class="service reveal">
-        <div class="service__art"><svg class="illo illo--plans" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-  <path class="il-line il-dim" d="M14 100H106"/>
-  <rect class="il-bar il-grow" style="--d:0s" x="20" y="70" width="12" height="30"/>
-  <rect class="il-bar il-grow" style="--d:.15s" x="38" y="58" width="12" height="42"/>
-  <rect class="il-bar il-grow" style="--d:.3s" x="56" y="64" width="12" height="36"/>
-  <rect class="il-bar il-grow" style="--d:.45s" x="74" y="44" width="12" height="56"/>
-  <rect class="il-lime il-grow" style="--d:.6s" x="92" y="28" width="12" height="72"/>
-  <path class="il-line il-gold-line il-dash" d="M14 52H106"/>
+      <article class="tile">
+        <div class="tile__top"><span class="index">03</span><span class="eyebrow">Execute</span></div>
+        <div class="tile__art"><svg class="illo illo--automation" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+  <rect class="il-paper" x="8" y="30" width="36" height="60"/>
+  <rect class="il-ink2" x="14" y="40" width="24" height="3"/><rect class="il-box" x="14" y="48" width="24" height="8"/>
+  <rect class="il-ink2" x="14" y="62" width="24" height="3"/><rect class="il-box" x="14" y="70" width="24" height="8"/>
+  <path class="il-line il-dim" d="M48 60H72"/>
+  <rect class="il-lime il-travel" x="46" y="56" width="8" height="8"/>
+  <rect class="il-paper" x="76" y="24" width="36" height="72"/>
+  <rect class="il-ink2" x="82" y="34" width="20" height="3"/>
+  <rect class="il-ink2" x="82" y="42" width="24" height="3"/>
+  <rect class="il-ink2" x="82" y="50" width="16" height="3"/>
+  <rect class="il-ink2" x="82" y="64" width="24" height="3"/>
+  <rect class="il-gold il-stamp" style="--d:1.4s" x="96" y="80" width="10" height="10"/>
 </svg></div>
-        <p class="service__k eyebrow eyebrow--ink">Plans</p>
-        <h3>Business plans and financial models</h3>
-        <p>A plan you can hand to a partner, a bank or a board, with a twelve-month model you can change yourself.</p>
-        <p class="service__more"><a href="services.html#plans">What you get</a></p>
+        <h3>The roadmap, and the work on it</h3>
+        <p>Owners, dates and milestones. Operating model, pricing and go-to-market. The systems the plan depends on, from customer channels to management reporting.</p>
       </article>
-      <article class="service reveal">
-        <div class="service__art"><svg class="illo illo--digital" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-  <rect class="il-paper" x="34" y="6" width="52" height="108" rx="6"/>
-  <rect class="il-ink" x="40" y="14" width="40" height="30"/>
-  <rect class="il-gold" x="46" y="34" width="16" height="4"/>
-  <rect class="il-ink2" x="42" y="52" width="30" height="3"/>
-  <rect class="il-ink2" x="42" y="60" width="36" height="3"/>
-  <rect class="il-ink2" x="42" y="68" width="24" height="3"/>
-  <rect class="il-ink2" x="42" y="80" width="34" height="3"/>
-  <rect class="il-ink2" x="42" y="88" width="28" height="3"/>
-  <rect class="il-lime il-press" x="42" y="98" width="36" height="9"/>
-  <rect class="il-lime il-pulse" x="92" y="10" width="8" height="8"/>
-</svg></div>
-        <p class="service__k eyebrow eyebrow--ink">Digital</p>
-        <h3>Website, email and automation</h3>
-        <p>Domain, company email, a website that works on a phone, and the forms and documents behind it issued automatically.</p>
-        <p class="service__more"><a href="services.html#digital">What you get</a></p>
-      </article>
-      <article class="service reveal">
-        <div class="service__art"><svg class="illo illo--ongoing" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <article class="tile">
+        <div class="tile__top"><span class="index">04</span><span class="eyebrow">Sustain</span></div>
+        <div class="tile__art"><svg class="illo illo--ongoing" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
   <circle class="il-ring il-dim-ring" cx="60" cy="60" r="40"/>
   <circle class="il-ring il-arc" cx="60" cy="60" r="40"/>
   <rect class="il-ink" x="54" y="54" width="12" height="12"/>
@@ -140,22 +180,45 @@
   <rect class="il-tick" x="58" y="102" width="4" height="8"/>
   <rect class="il-tick" x="10" y="58" width="8" height="4"/>
 </svg></div>
-        <p class="service__k eyebrow eyebrow--ink">Ongoing</p>
-        <h3>Ongoing management</h3>
-        <p>Your site, email and automation kept running and current, with a short report each month.</p>
-        <p class="service__more"><a href="services.html#ongoing">What you get</a></p>
+        <h3>Keep it on track</h3>
+        <p>KPIs and dashboards, monthly or quarterly reviews with management or the board, course corrections, and an adviser on call between reviews.</p>
       </article>
+    </div>
+    <div class="actions" style="margin-top:28px">
+      <a class="btn btn--cyan magnetic" href="services.html">How each stage works</a>
+      <a class="btn btn--glass magnetic" href="contact.html">Tell us where you are</a>
     </div>
   </div>
 </section>
 
-<section class="band cta" aria-labelledby="cta-h">
+<section class="section steps light" aria-labelledby="who-h">
+  <div class="wrap">
+    <div class="head head--split">
+      <div>
+        <p class="eyebrow">Who we work with &middot; Any size</p>
+        <h2 id="who-h">From a single outlet to a GLC.</h2>
+      </div>
+      <p class="lede">The questions change with size. The discipline does not.</p>
+    </div>
+    <ul class="flow flow--plain">
+      <li class="flow__step" style="--i:0"><h3>Merchants and owner&#8209;run businesses</h3><p>Opening a second outlet, restoring margins, deciding what to stop doing.</p></li>
+      <li class="flow__step" style="--i:1"><h3>SMEs and family businesses</h3><p>Professionalising the business, succession, a new market or product line.</p></li>
+      <li class="flow__step" style="--i:2"><h3>Corporations</h3><p>A division's strategy refresh, a business case for the board, a transformation that needs an owner.</p></li>
+      <li class="flow__step" style="--i:3"><h3>GLCs and agencies</h3><p>Mandate reviews, performance frameworks, programmes that have to show results.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta dark" aria-labelledby="cta-h">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
   <div class="wrap cta__grid">
     <div>
-      <h2 id="cta-h">Start with a brief.</h2>
-      <p class="lede">Two or three lines is enough to start. We read it and reply.</p>
+      <p class="eyebrow">Next step</p>
+      <h2 id="cta-h" style="margin-top:18px">Start with <span class="grad">the question.</span></h2>
+      <p class="lede" style="margin-top:16px">Tell us what you are deciding and when. A short message is enough.</p>
     </div>
-    <a class="btn btn--accent" href="contact.html">Send a brief</a>
+    <a class="btn btn--cyan magnetic" href="contact.html">Get in touch</a>
   </div>
 </section>
 
@@ -166,13 +229,14 @@
     <div class="footer__grid">
       <div class="footer__about">
         <a class="brand" href="index.html" aria-label="NEEL Advisory, home">
-          <img class="brand__mark" src="assets/brand/neel-mark.png" alt="" width="42" height="42" loading="lazy">
-          <span class="brand__text"><span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span></span>
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span>
         </a>
-        <p>Advice you can point to. Strategy, business plans, websites, automation and ongoing management for owner-run businesses.</p>
+        <p>Strategy you can point to. Independent consulting for organisations of every size, from diagnosis through execution and review.</p>
+        <p class="footer__status"><span class="dot" aria-hidden="true"></span>Accepting new engagements</p>
       </div>
       <div>
-        <p class="eyebrow eyebrow--light">Pages</p>
+        <p class="eyebrow">Pages</p>
         <ul class="footer__nav">
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
@@ -180,14 +244,13 @@
         </ul>
       </div>
       <div>
-        <p class="eyebrow eyebrow--light">Contact</p>
-        <p class="footer__contact"><a href="mailto:hello@neeladvisory.my">hello@neeladvisory.my</a><br>Subang Jaya, Selangor, Malaysia</p>
-        <p class="footer__contact"><a href="contact.html">Send a brief</a></p>
+        <p class="eyebrow">Contact</p>
+        <p><a href="mailto:info@neeladvisory.my">info@neeladvisory.my</a><br>Subang Jaya, Selangor, Malaysia</p>
       </div>
     </div>
     <div class="footer__legal">
-      <div>NEEL Advisory is a consulting partnership based in Subang Jaya, Selangor, Malaysia.</div>
-      <div>We use the details you send us only to reply to you. &copy; 2026 NEEL Advisory.</div>
+      <div>NEEL Advisory is an independent consulting partnership based in Subang Jaya, Selangor, Malaysia.</div>
+      <div>Client names and engagements are not published. Details you send us are used only to reply to you. &copy; 2026 NEEL Advisory.</div>
     </div>
   </div>
 </footer>
