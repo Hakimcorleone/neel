@@ -380,3 +380,16 @@ noscript p { background: var(--paper-2); padding: 12px 14px; border: 1px solid v
 .cta--light .lede { color: var(--ink-2); }
 .cta--light .eyebrow { color: var(--muted); }
 .cta--light .hl { color: var(--blue-ink); }
+
+/* language toggle (BM | EN) */
+.lang { display: flex; margin-left: auto; border: 1px solid var(--glass-line-2); }
+.lang a { display: flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 10px; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-decoration: none; color: var(--on-dark-2); transition: color .2s, background-color .2s; }
+.lang a:hover { color: var(--on-dark); }
+.lang a[aria-current] { background: var(--cyan); color: var(--navy-3); }
+@media (min-width: 900px) { .nav { margin-left: auto; } .lang { margin-left: 14px; } .lang a { min-height: 38px; min-width: 40px; } }
+@media (max-width: 599px) {
+  .masthead__in { gap: 10px; }
+  .brand__sub { display: none; }
+  .menu summary { font-size: 0; gap: 0; padding: 0; width: 46px; justify-content: center; }
+}
+@media (max-width: 380px) { .masthead__in { gap: 8px; } .lang a { min-width: 38px; padding: 0 8px; } }

@@ -56,19 +56,35 @@
     });
   }
 
+  // Interface text in the page's language (Bahasa Melayu pages set lang="ms-MY").
+  var ms = /^ms/i.test(document.documentElement.lang);
+  var T = ms ? {
+    selectCopy: "Pilih dan salin", selected: "Teks dipilih. Tekan Salin.", copied: "Disalin",
+    name: "Nama", org: "Organisasi", email: "Emel", stage: "Peringkat", decision: "Keputusan yang sedang kami hadapi:",
+    subject: "Pertanyaan daripada ", site: "laman web", sending: "Menghantar…",
+    sent: function (e) { return "Dihantar. Kami akan membalas ke " + e + "."; },
+    failed: "Tidak dapat dihantar secara automatik. Guna butang salin atau emel di bawah."
+  } : {
+    selectCopy: "Select and copy", selected: "Text selected. Press Copy.", copied: "Copied",
+    name: "Name", org: "Organisation", email: "Email", stage: "Stage", decision: "The decision in front of us:",
+    subject: "Enquiry from ", site: "the website", sending: "Sending…",
+    sent: function (e) { return "Sent. We will reply to " + e + "."; },
+    failed: "Could not send automatically. Use the copy or mail buttons below."
+  };
+
   // Copy buttons.
   function copyText(text, button, fallbackEl) {
     var original = button.dataset.label || (button.dataset.label = button.textContent);
     clearTimeout(button._t);
     function done(label) { button.textContent = label; button._t = setTimeout(function () { button.textContent = original; }, 1800); }
     function select() {
-      if (!fallbackEl) { done("Select and copy"); return; }
+      if (!fallbackEl) { done(T.selectCopy); return; }
       var range = document.createRange(); range.selectNodeContents(fallbackEl);
       var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
-      done("Text selected. Press Copy.");
+      done(T.selected);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { done("Copied"); }, select);
+      navigator.clipboard.writeText(text).then(function () { done(T.copied); }, select);
     } else { select(); }
   }
   Array.prototype.forEach.call(document.querySelectorAll("[data-copy], [data-copy-from]"), function (btn) {
@@ -90,20 +106,20 @@
     if (!form.checkValidity()) { form.reportValidity(); return; }
     var d = new FormData(form);
     var org = (d.get("organisation") || "").toString().trim(), name = (d.get("name") || "").toString().trim();
-    var text = ["Name: " + name, "Organisation: " + (org || "-"), "Email: " + (d.get("email") || "").toString().trim(),
-                "Stage: " + (d.get("stage") || "").toString(), "", "The decision in front of us:",
+    var text = [T.name + ": " + name, T.org + ": " + (org || "-"), T.email + ": " + (d.get("email") || "").toString().trim(),
+                T.stage + ": " + (d.get("stage") || "").toString(), "", T.decision,
                 (d.get("message") || "").toString().trim()].join("\n");
-    var subject = "Enquiry from " + (org || name || "the website");
+    var subject = T.subject + (org || name || T.site);
     pre.textContent = text;
     mail.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
     out.hidden = false;
-    status.textContent = endpoint ? "Sending…" : "";
+    status.textContent = endpoint ? T.sending : "";
     out.scrollIntoView({ behavior: motion ? "smooth" : "auto", block: "nearest" });
     if (endpoint) {
       var payload = {}; d.forEach(function (v, k) { payload[k] = v; }); payload._subject = subject;
       fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) })
-        .then(function (r) { status.textContent = r.ok ? "Sent. We will reply to " + payload.email + "." : "Could not send automatically. Use the copy or mail buttons below."; })
-        .catch(function () { status.textContent = "Could not send automatically. Use the copy or mail buttons below."; });
+        .then(function (r) { status.textContent = r.ok ? T.sent(payload.email) : T.failed; })
+        .catch(function () { status.textContent = T.failed; });
     }
   });
 })();
