@@ -373,3 +373,10 @@ noscript p { background: var(--paper-2); padding: 12px 14px; border: 1px solid v
   .il-pulse { transform-box: fill-box; transform-origin: center; animation: il-pulse 2.4s ease-in-out infinite; }
 }
 @keyframes il-pulse { 0%, 100% { opacity: .35; transform: scale(.9); } 50% { opacity: 1; transform: scale(1); } }
+
+/* light call-to-action band (home) */
+.cta--light { background: var(--paper); color: var(--ink); border-top: 1px solid var(--line); }
+.cta--light h2 { color: var(--ink); }
+.cta--light .lede { color: var(--ink-2); }
+.cta--light .eyebrow { color: var(--muted); }
+.cta--light .hl { color: var(--blue-ink); }
