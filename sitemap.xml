@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://neeladvisory.my/</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://neeladvisory.my/services</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://neeladvisory.my/perkhidmatan</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://neeladvisory.my/about</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://neeladvisory.my/contact</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://neeladvisory.my/ms</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://neeladvisory.my/ms/perkhidmatan</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://neeladvisory.my/ms/tentang</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://neeladvisory.my/ms/hubungi</loc><lastmod>2026-10-11</lastmod></url>
 </urlset>
