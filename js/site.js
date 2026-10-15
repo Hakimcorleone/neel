@@ -56,6 +56,42 @@
     });
   }
 
+  // Scroll story (home): the sticky cube turns one side per stage as the stage panels pass the middle
+  // of the screen, held 24deg off square so the next side shows. With reduced motion it snaps to the active side instead of turning continuously.
+  var story = document.querySelector(".story");
+  if (story) {
+    var panels = story.querySelectorAll(".story__panels .tile");
+    var cube = story.querySelector(".story__cube");
+    var ticks = story.querySelectorAll(".story__rail li");
+    var wide = window.matchMedia("(min-width: 960px)");
+    var queued = false, last = -1;
+    var paint = function () {
+      queued = false;
+      if (!wide.matches) return;
+      var mid = window.innerHeight / 2, c = [];
+      for (var i = 0; i < panels.length; i++) { var r = panels[i].getBoundingClientRect(); c.push(r.top + r.height / 2); }
+      var n = c.length - 1, pos = 0;
+      if (mid >= c[n]) pos = n;
+      else for (var k = 0; k < n; k++) if (mid >= c[k] && mid < c[k + 1]) { pos = k + (mid - c[k]) / (c[k + 1] - c[k]); break; }
+      var active = Math.round(pos);
+      cube.style.transform = "rotateX(-16deg) rotateY(" + (-24 - 90 * (motion ? pos : active)).toFixed(2) + "deg)";
+      if (active !== last) {
+        last = active;
+        for (var j = 0; j < panels.length; j++) {
+          panels[j].classList.toggle("is-active", j === active);
+          if (ticks[j]) ticks[j].classList.toggle("is-active", j === active);
+        }
+      }
+    };
+    var queue = function () { if (!queued) { queued = true; window.requestAnimationFrame(paint); } };
+    if (panels.length && cube) {
+      story.classList.add("is-live");
+      window.addEventListener("scroll", queue, { passive: true });
+      window.addEventListener("resize", queue);
+      paint();
+    }
+  }
+
   // Interface text in the page's language (Bahasa Melayu pages set lang="ms-MY").
   var ms = /^ms/i.test(document.documentElement.lang);
   var T = ms ? {

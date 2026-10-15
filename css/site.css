@@ -133,6 +133,7 @@ h3 { font-size: clamp(18px, 1.6vw, 21px); font-weight: 500; }
 /* ---- bento ---- */
 .bento { background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%); }
 .bento .aurora { opacity: .55; }
+.bento { overflow: clip; } /* clip, not hidden, so the story cube can stay sticky */
 .tiles { display: grid; gap: 14px; grid-template-columns: 1fr; position: relative; }
 @media (min-width: 640px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 960px) { .tiles { grid-template-columns: repeat(12, minmax(0, 1fr)); } .tile:nth-child(1) { grid-column: span 5; } .tile:nth-child(2) { grid-column: span 7; } .tile:nth-child(3) { grid-column: span 7; } .tile:nth-child(4) { grid-column: span 5; } }
@@ -393,3 +394,32 @@ noscript p { background: var(--paper-2); padding: 12px 14px; border: 1px solid v
   .menu summary { font-size: 0; gap: 0; padding: 0; width: 46px; justify-content: center; }
 }
 @media (max-width: 380px) { .masthead__in { gap: 8px; } .lang a { min-width: 38px; padding: 0 8px; } }
+
+/* scroll story (home services): a sticky cube turns one side per stage as the stages scroll past.
+   Below 960px, or without JS, the stages stay as ordinary cards and the cube is hidden. */
+.story__stage { display: none; }
+@media (min-width: 960px) {
+  .story { --s: 230px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: clamp(40px, 6vw, 96px); align-items: start; margin-top: 8px; }
+  .story__stage { display: grid; justify-items: center; position: sticky; top: calc(50vh - 210px); height: 420px; align-content: center; }
+  .story__scene { position: relative; }
+  .story__cube { width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateX(-16deg) rotateY(-24deg); will-change: transform; }
+  .story__face { grid-template-rows: auto 1fr auto; padding: 18px; gap: 6px; }
+  .story__num { justify-self: start; font-family: var(--mono); font-size: 13px; letter-spacing: .16em; color: var(--cyan-bright); }
+  .story__art { display: grid; place-items: center; width: 100%; }
+  .story__art svg { width: 58%; height: auto; }
+  .story__face .eyebrow { color: var(--on-dark-2); }
+  .story .floor { bottom: 40px; }
+  .story__rail { position: relative; z-index: 1; display: flex; gap: 10px; margin-top: 78px; padding: 0; list-style: none; }
+  .story__rail li { width: 34px; height: 3px; background: var(--glass-line-2); transition: background-color .3s; }
+  .story__rail li span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .story__rail li.is-active { background: var(--cyan); }
+
+  .story .story__panels { display: flex; flex-direction: column; gap: 0; }
+  .story .tile { min-height: 64vh; align-content: center; grid-template-rows: auto auto auto; padding: 0 0 0 32px; background: none; border: 0; border-left: 2px solid var(--glass-line); -webkit-backdrop-filter: none; backdrop-filter: none; transition: opacity .4s, border-color .4s; }
+  .story .tile:hover { transform: none; background: none; animation: none; }
+  .story .tile::before, .story .tile::after, .story .tile__art { display: none; }
+  .story .tile h3 { font-size: clamp(24px, 2.4vw, 34px); }
+  .story .tile p { font-size: 17px; }
+  .story.is-live .tile { opacity: .38; }
+  .story.is-live .tile.is-active { opacity: 1; border-left-color: var(--cyan); }
+}
