@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/perkhidmatan", "destination": "/ms/perkhidmatan", "permanent": true }
+    {
+      "source": "/perkhidmatan",
+      "destination": "/ms/perkhidmatan",
+      "permanent": true
+    }
   ]
 }

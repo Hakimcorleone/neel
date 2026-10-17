@@ -13,41 +13,29 @@
 <meta property="og:description" content="That page does not exist on neeladvisory.my.">
 <meta property="og:image" content="https://neeladvisory.my/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#060F22">
+<meta name="theme-color" content="#0E0F0C">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Michroma&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800;900&display=swap">
 <link rel="stylesheet" href="/css/site.css">
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="page-404">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#E4EBF5"/><stop offset=".5" stop-color="#97A5BE"/><stop offset="1" stop-color="#5E6D88"/>
-    </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="b"/>
-      <feFlood flood-color="#3EE6FF" flood-opacity=".75"/>
-      <feComposite in2="b" operator="in" result="g"/>
-      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-  </defs>
-</svg>
-
 <a class="skip" href="#main">Skip to content</a>
-<header class="masthead">
+<header class="masthead dark">
   <div class="wrap masthead__in">
     <a class="brand" href="/" aria-label="NEEL Advisory, home">
       <span class="brand__mark" aria-hidden="true"></span>
       <span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="/services">Services</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
-      <a class="btn btn--cyan btn--sm magnetic" href="/contact">Get in touch</a>
+      <div class="nav__dd"><a href="/services">Services</a><ul class="dd" aria-label="Services"><li><a href="/services/strategy-advisory">Strategy &amp; Advisory</a></li><li><a href="/services/ai-automations">AI &amp; Automations</a></li></ul></div>
+      <a href="/how-we-work">How we work</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="btn btn--primary btn--sm" href="/contact">Get in touch</a>
     </nav>
     <nav class="lang" aria-label="Language"><a href="/ms" hreflang="ms" lang="ms" title="Bahasa Melayu">BM</a><a href="/" hreflang="en" lang="en" aria-current="true" title="English">EN</a></nav>
     <details class="menu">
@@ -55,30 +43,35 @@
       <nav class="menu__nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="/services">Services</a>
-<a href="/about">About</a>
-<a href="/contact">Contact</a>
+        <a href="/services/strategy-advisory" class="sub">Strategy &amp; Advisory</a>
+        <a href="/services/ai-automations" class="sub">AI &amp; Automations</a>
+        <a href="/how-we-work">How we work</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
       </nav>
     </details>
+    <div class="progress" aria-hidden="true"></div>
   </div>
 </header>
 
 <main id="main">
 <section class="pagehead dark notfound">
-  <div class="aurora" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">404</p>
-    <h1>Page <span class="grad">not found.</span></h1>
+    <h1>Page <span class="hl">not found.</span></h1>
     <p class="lede">The address may have changed, or the link was typed by hand. The links below will take you back.</p>
     <div class="actions">
-      <a class="btn btn--cyan" href="/">Home</a>
-      <a class="btn btn--glass" href="/services">Services</a>
-      <a class="btn btn--glass" href="/contact">Contact</a>
+      <a class="btn btn--primary" href="/">Home</a>
+      <a class="btn btn--outline" href="/services">Services</a>
+      <a class="btn btn--outline" href="/services/ai-automations">AI &amp; Automations</a>
+      <a class="btn btn--outline" href="/contact">Contact</a>
     </div>
   </div>
 </section>
+
 </main>
 
-<footer class="footer">
+<footer class="footer dark">
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__about">
@@ -86,15 +79,19 @@
           <span class="brand__mark" aria-hidden="true"></span>
           <span class="brand__name">NEEL</span><span class="brand__sub">Advisory</span>
         </a>
-        <p>Business plans and strategy you can point to. Independent consulting for SMEs, family businesses, corporations and GLCs in Malaysia.</p>
+        <p>Strategy, delivered. Business consultancy and automation tools for SMEs, family businesses, corporations and GLCs in Malaysia.</p>
         <p class="footer__status"><span class="dot" aria-hidden="true"></span>Accepting new engagements</p>
       </div>
       <div>
         <p class="eyebrow">Pages</p>
         <ul class="footer__nav">
           <li><a href="/services">Services</a></li>
+          <li><a href="/services/strategy-advisory">Strategy &amp; Advisory</a></li>
+          <li><a href="/services/ai-automations">AI &amp; Automations</a></li>
+          <li><a href="/how-we-work">How we work</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy notice</a></li>
         </ul>
       </div>
       <div>
@@ -104,7 +101,7 @@
     </div>
     <div class="footer__legal">
       <div>NEEL Advisory is an independent consulting partnership based in Subang Jaya, Selangor, Malaysia.</div>
-      <div>Client names and engagements are not published. Details you send us are used only to reply to you. &copy; 2026 NEEL Advisory.</div>
+      <div>Client names and engagements are not published. Details you send us are used only to reply to you. See the <a href="/privacy">privacy notice</a>. &copy; 2026 NEEL Advisory.</div>
     </div>
   </div>
 </footer>
