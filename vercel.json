@@ -3,6 +3,16 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/contact",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ms/hubungi",
+      "destination": "/ms",
+      "permanent": true
+    },
+    {
       "source": "/perkhidmatan",
       "destination": "/ms/perkhidmatan",
       "permanent": true

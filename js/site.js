@@ -10,15 +10,8 @@
 
   // Interface text in the page's language (Bahasa Malaysia pages set lang="ms-MY").
   var ms = /^ms/i.test(document.documentElement.lang);
-  var T = ms ? {
-    selectCopy: "Pilih dan salin", selected: "Teks dipilih. Tekan Salin.", copied: "Disalin",
-    name: "Nama", org: "Organisasi", email: "Emel", stage: "Perkara", tool: "Alat", decision: "Keputusan yang sedang kami hadapi:",
-    subject: "Pertanyaan daripada ", site: "laman web"
-  } : {
-    selectCopy: "Select and copy", selected: "Text selected. Press Copy.", copied: "Copied",
-    name: "Name", org: "Organisation", email: "Email", stage: "About", tool: "Tool", decision: "The decision in front of us:",
-    subject: "Enquiry from ", site: "the website"
-  };
+  var T = ms ? { selectCopy: "Pilih dan salin", selected: "Teks dipilih. Tekan Salin.", copied: "Disalin" }
+             : { selectCopy: "Select and copy", selected: "Text selected. Press Copy.", copied: "Copied" };
 
   // Copy buttons.
   function copyText(text, button, fallbackEl) {
@@ -43,33 +36,51 @@
     });
   });
 
-  // Enquiry form: preselect from ?stage= and ?tool=, compose the message, show it, offer copy and the mail app.
-  var form = document.getElementById("enquiry");
-  if (!form) return;
-  var params = new URLSearchParams(window.location.search);
-  ["stage", "tool"].forEach(function (k) {
-    var v = params.get(k), sel = form.querySelector('[name="' + k + '"]');
-    if (!v || !sel) return;
-    Array.prototype.forEach.call(sel.options, function (o) { if (o.value === v || o.getAttribute("data-key") === v) sel.value = o.value; });
-  });
-  var out = document.getElementById("enquiry-out"), pre = document.getElementById("enquiry-text");
-  var mail = document.getElementById("enquiry-mail"), status = document.getElementById("enquiry-status");
-  var email = form.getAttribute("data-email");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    var d = new FormData(form);
-    var org = (d.get("organisation") || "").toString().trim(), name = (d.get("name") || "").toString().trim();
-    var lines = [T.name + ": " + name, T.org + ": " + (org || "-"), T.email + ": " + (d.get("email") || "").toString().trim(),
-                 T.stage + ": " + (d.get("stage") || "").toString()];
-    if (d.get("tool")) lines.push(T.tool + ": " + d.get("tool"));
-    lines.push("", T.decision, (d.get("message") || "").toString().trim());
-    var text = lines.join("\n");
-    var subject = T.subject + (org || name || T.site);
-    pre.textContent = text;
-    mail.href = "mailto:" + email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(text);
-    out.hidden = false;
-    status.textContent = "";
-    out.scrollIntoView({ behavior: motion ? "smooth" : "auto", block: "nearest" });
-  });
+  // How we work: the pinned stage shows the beat whose copy sits in the middle of the screen; the pointer tilts it.
+  var scene = document.querySelector(".scene");
+  if (scene) {
+    var story = scene.closest(".story2") || scene.parentNode;
+    var beats = Array.prototype.slice.call(document.querySelectorAll(".beat[data-beat]"));
+    var steps = Array.prototype.slice.call(scene.querySelectorAll(".scene__step"));
+    var mast = document.querySelector(".masthead");
+    var current = -1;
+    function setMast() { if (mast && story.style) story.style.setProperty("--mast", mast.offsetHeight + "px"); }
+    function pick(instant) {
+      var vh = window.innerHeight, sr = scene.getBoundingClientRect();
+      var stacked = sr.bottom < vh * 0.7;                       // phones: the stage sits above the copy
+      var line = stacked ? sr.bottom + (vh - sr.bottom) * 0.5 : vh * 0.5;
+      var n = 0;
+      for (var i = 0; i < beats.length; i++) {
+        if (beats[i].getBoundingClientRect().top <= line) n = parseInt(beats[i].getAttribute("data-beat"), 10);
+      }
+      if (n === current) return;
+      current = n;
+      if (instant) scene.classList.add("no-tr");
+      scene.setAttribute("data-beat", String(n));
+      steps.forEach(function (s) {
+        var k = parseInt(s.getAttribute("data-step"), 10), a = s.querySelector("a");
+        s.classList.toggle("is-active", k === n); s.classList.toggle("is-done", k < n);
+        if (a) { if (k === n) a.setAttribute("aria-current", "step"); else a.removeAttribute("aria-current"); }
+      });
+      if (instant) requestAnimationFrame(function () { requestAnimationFrame(function () { scene.classList.remove("no-tr"); }); });
+    }
+    var ticking = false, settled = false;
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; pick(!settled); }); } }
+    setMast(); pick(true);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () { setMast(); pick(false); });
+    window.addEventListener("load", function () { setTimeout(function () { settled = true; }, 400); });
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { setMast(); pick(!settled); }); }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) { scene.classList.toggle("is-off", !entries[0].isIntersecting); }, { threshold: 0 }).observe(scene);
+    }
+    if (motion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      scene.addEventListener("pointermove", function (e) {
+        var r = scene.getBoundingClientRect();
+        scene.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+        scene.style.setProperty("--my", ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+      });
+      scene.addEventListener("pointerleave", function () { scene.style.setProperty("--mx", "0"); scene.style.setProperty("--my", "0"); });
+    }
+  }
 })();
