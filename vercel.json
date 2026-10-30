@@ -8,14 +8,115 @@
       "permanent": true
     },
     {
-      "source": "/ms/hubungi",
-      "destination": "/ms",
+      "source": "/perkhidmatan",
+      "destination": "/services/strategy-advisory",
+      "permanent": false
+    },
+    {
+      "source": "/services",
+      "destination": "/services/strategy-advisory",
       "permanent": true
     },
     {
-      "source": "/perkhidmatan",
-      "destination": "/ms/perkhidmatan",
+      "source": "/services/ai-automations/never-miss-a-customer",
+      "destination": "/services/ai-automations/front-desk",
       "permanent": true
+    },
+    {
+      "source": "/services/ai-automations/keep-them-coming-back",
+      "destination": "/services/ai-automations/customer-loop",
+      "permanent": true
+    },
+    {
+      "source": "/services/ai-automations/run-the-back-office",
+      "destination": "/services/ai-automations/sales-engine",
+      "permanent": true
+    },
+    {
+      "source": "/ms",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan",
+      "destination": "/services/strategy-advisory",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan/strategi-nasihat",
+      "destination": "/services/strategy-advisory",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan/ai-automasi",
+      "destination": "/services/ai-automations",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan/ai-automasi/jangan-terlepas-pelanggan",
+      "destination": "/services/ai-automations/front-desk",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan/ai-automasi/pastikan-mereka-kembali",
+      "destination": "/services/ai-automations/customer-loop",
+      "permanent": false
+    },
+    {
+      "source": "/ms/perkhidmatan/ai-automasi/uruskan-pejabat-belakang",
+      "destination": "/services/ai-automations/sales-engine",
+      "permanent": false
+    },
+    {
+      "source": "/ms/cara-kami-bekerja",
+      "destination": "/how-we-work",
+      "permanent": false
+    },
+    {
+      "source": "/ms/tentang",
+      "destination": "/about",
+      "permanent": false
+    },
+    {
+      "source": "/ms/privasi",
+      "destination": "/privacy",
+      "permanent": false
+    },
+    {
+      "source": "/ms/:path*",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000"
+        }
+      ]
     }
   ]
 }
